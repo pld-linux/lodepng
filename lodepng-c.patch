@@ -1,0 +1,63 @@
+--- lodepng-e34ac04553e51a6982ae234d98ce6b76dd57a6a1/lodepng.h.orig	2020-03-06 22:34:40.000000000 +0100
++++ lodepng-e34ac04553e51a6982ae234d98ce6b76dd57a6a1/lodepng.h	2020-03-21 07:30:23.031248431 +0100
+@@ -28,8 +28,16 @@
+ 
+ #include <string.h> /*for size_t*/
+ 
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ extern const char* LODEPNG_VERSION_STRING;
+ 
++#ifdef __cplusplus
++}
++#endif
++
+ /*
+ The following #defines are used to create code sections. They can be disabled
+ to disable code sections, which can give faster compile time and smaller binary.
+@@ -95,6 +103,11 @@
+ #endif /*LODEPNG_COMPILE_CPP*/
+ 
+ #ifdef LODEPNG_COMPILE_PNG
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ /*The PNG color types (also used for raw image).*/
+ typedef enum LodePNGColorType {
+   LCT_GREY = 0, /*grayscale: 1,2,4,8,16 bit*/
+@@ -207,6 +220,9 @@
+ #endif /*LODEPNG_COMPILE_DISK*/
+ #endif /*LODEPNG_COMPILE_ENCODER*/
+ 
++#ifdef __cplusplus
++}
++#endif
+ 
+ #ifdef LODEPNG_COMPILE_CPP
+ namespace lodepng {
+@@ -257,6 +273,10 @@
+ #endif /*LODEPNG_COMPILE_CPP*/
+ #endif /*LODEPNG_COMPILE_PNG*/
+ 
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ #ifdef LODEPNG_COMPILE_ERROR_TEXT
+ /*Returns an English description of the numerical error code.*/
+ const char* lodepng_error_text(unsigned code);
+@@ -964,6 +984,10 @@
+ unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const char* filename);
+ #endif /*LODEPNG_COMPILE_DISK*/
+ 
++#ifdef __cplusplus
++}
++#endif
++
+ #ifdef LODEPNG_COMPILE_CPP
+ /* The LodePNG C++ wrapper uses std::vectors instead of manually allocated memory buffers. */
+ namespace lodepng {

@@ -10,6 +10,7 @@ License:	BSD-like + altered sources must be marked
 Group:		Libraries
 Source0:	https://github.com/lvandeve/lodepng/archive/%{gitref}/%{name}-%{snap}.tar.gz
 # Source0-md5:	4557f32be35a404d20f5fcc784fe48c5
+Patch0:		%{name}-c.patch
 URL:		http://lodev.org/lodepng/
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
@@ -48,6 +49,7 @@ Statyczna biblioteka lodepng.
 
 %prep
 %setup -q -n %{name}-%{gitref}
+%patch0 -p1
 
 %build
 libtool --tag=CXX --mode=compile %{__cxx} %{rpmcxxflags} %{rpmcppflags} -o lodepng.lo -c lodepng.cpp
