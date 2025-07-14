@@ -49,7 +49,7 @@ Statyczna biblioteka lodepng.
 
 %prep
 %setup -q -n %{name}-%{gitref}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 libtool --tag=CXX --mode=compile %{__cxx} %{rpmcxxflags} %{rpmcppflags} -o lodepng.lo -c lodepng.cpp
