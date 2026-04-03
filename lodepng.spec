@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Koder i dekoder PNG w C i C++ bez zależności
 Name:		lodepng
 %define	snap	20200306
 %define	gitref	e34ac04553e51a6982ae234d98ce6b76dd57a6a1
-%define	rel	1
+%define	rel	2
 Version:	0
 Release:	0.%{snap}.%{rel}
 License:	BSD-like + altered sources must be marked
